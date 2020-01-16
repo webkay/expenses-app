@@ -1,4 +1,4 @@
-var app = angular.module('expensesApp', []);
+var app = angular.module('expensesApp', ['ngRoute']);
 
 app.controller('HomeViewController', ['$scope', function ($scope) {
   $scope.appTitle = "Simple Expenses Tracker";
