@@ -7,12 +7,19 @@
     <script src="js/app.js"></script>
     <link href="css/style.css" rel="stylesheet" />
   </head>
-  <body ng-controller="ExpensesViewController">
-    <h1>{{phrase}}</h1>
-    {{expense.description}} - {{expense.amount}}
-    <button ng-click="incrementAmount()">Increase</button>
-    <div><input ng-model="expense.description" type="text" /></div>
-    <div><input ng-model="expense.amount" type="number" /></div>
-    <div><textarea ng-model="phrase" ></textarea></div>
+  <body>
+    <div ng-controller="HomeViewController">
+      <h1>{{appTitle}}</h1>
+      <textarea ng-model="appTitle" ></textarea>
+    </div>
+    <div ng-controller="ExpensesViewController">
+      <ul>
+        <li ng-repeat="expense in expenses">
+          <p>{{expense.description}} - {{expense.amount}}</p>
+          <input ng-model="expense.description" type="text" />
+          <input ng-model="expense.amount" type="number" />
+        </li>
+      </ul>
+    </div>
   </body>
 </html>
