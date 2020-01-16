@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html ng-app="expensesApp">
   <head>
     <meta charset="utf-8">
@@ -8,5 +9,10 @@
   </head>
   <body ng-controller="ExpensesViewController">
     <h1>{{phrase}}</h1>
+    {{expense.description}} - {{expense.amount}}
+    <button ng-click="incrementAmount()">Increase</button>
+    <div><input ng-model="expense.description" type="text" /></div>
+    <div><input ng-model="expense.amount" type="number" /></div>
+    <div><textarea ng-model="phrase" ></textarea></div>
   </body>
 </html>
