@@ -15,7 +15,7 @@
     <div ng-controller="ExpensesViewController">
       <ul>
         <li ng-repeat="expense in expenses">
-          <p>{{expense.description}} - {{expense.amount}}</p>
+          <p>{{expense.description | uppercase}} - {{expense.amount | number:2}}</p>
           <input ng-model="expense.description" type="text" />
           <input ng-model="expense.amount" type="number" />
         </li>
