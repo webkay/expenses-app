@@ -1,18 +1,4 @@
 body {
   font-family: Verdana;
-}
-
-button {
-  line-height: 2.5;
-  padding: 0 20px;
-  font-size: 1rem;
-  margin-top: 10px;
-}
-
-div {
-  margin-top: 50px;
-}
-
-input, textarea {
-  width: 200px;
+  padding-top: 70px;
 }
