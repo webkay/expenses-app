@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-xs-12">
+    <a href="#/expenses/new" class="btn btn-success btn-lg">
+      <span class="glyphicon glyphicon-plus"></span> New expense
+    </a>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12">
+    <ul class="list-group">
+      <li ng-repeat="expense in expenses" class="list-group-item text-center">
+        <span class="pull-left">${{expense.amount | number:2}}</span>
+        {{expense.description | uppercase}}
+      </li>
+    </ul>
+  </div>
+</div>

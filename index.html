@@ -16,18 +16,8 @@
       </div>
     </nav>
 
-    <div ng-controller="ExpensesViewController" class="container">
-      <div class="row">
-        <div class="col-xs-12">
-          <ul class="list-group">
-            <li ng-repeat="expense in expenses" class="list-group-item text-center">
-              <span class="pull-left">{{expense.amount | number:2}}</span>
-              {{expense.description | uppercase}}
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
+    <div class="container" ng-view></div>
+
     <script src="js/angular.min.js"></script>
     <script src="js/angular-route.min.js"></script>
     <script src="js/app.js"></script>
