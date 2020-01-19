@@ -11,11 +11,11 @@ app.config(function ($routeProvider) {
       controller: 'ExpensesViewController'
     })
     .when('/expenses/new', {
-      templateUrl: 'views/expenses-form.html',
+      templateUrl: 'views/expense-form.html',
       controller: 'ExpenseViewController'
     })
     .when('/expenses/edit/:id', {
-      templateUrl: 'views/expenses-form.html',
+      templateUrl: 'views/expense-form.html',
       controller: 'ExpenseViewController'
     })
     .otherwise({
@@ -35,6 +35,10 @@ app.factory('Expenses', function () {
     {description: "pavilion", amount: 15, date: '2014-10-06'}
   ];
 
+  service.save = function (entry) {
+    service.entries.push(entry);
+  };
+
   return service;
 });
 
@@ -46,6 +50,13 @@ app.controller('ExpensesViewController', ['$scope', 'Expenses', function ($scope
   $scope.expenses = Expenses.entries;
 }]);
 
-app.controller('ExpenseViewController', ['$scope', '$routeParams', 'Expenses', function ($scope, $routeParams, Expenses) {
-  $scope.someText = "Hello I am Mac Mini. ID = " + $routeParams.id + " " + Expenses.entries[0].description;
+app.controller('ExpenseViewController', ['$scope', '$routeParams', '$location', 'Expenses', function ($scope, $routeParams, $location, Expenses) {
+  if (!$routeParams.id) {
+    $scope.expense = {};
+  }
+
+  $scope.save = function () {
+    Expenses.save($scope.expense);
+    $location.path('/');
+  };
 }]);
