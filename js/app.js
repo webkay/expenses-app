@@ -14,6 +14,10 @@ app.config(function ($routeProvider) {
       templateUrl: 'views/expenses-form.html',
       controller: 'ExpenseViewController'
     })
+    .when('/expenses/edit/:id', {
+      templateUrl: 'views/expenses-form.html',
+      controller: 'ExpenseViewController'
+    })
     .otherwise({
       redirectTo: '/'
     });
@@ -34,6 +38,6 @@ app.controller('ExpensesViewController', ['$scope', function ($scope) {
   ];
 }]);
 
-app.controller('ExpenseViewController', ['$scope', function ($scope) {
-  $scope.someText = "Hello I am Mac Mini";
+app.controller('ExpenseViewController', ['$scope', '$routeParams', function ($scope, $routeParams) {
+  $scope.someText = "Hello I am Mac Mini. ID = " + $routeParams.id;
 }]);
