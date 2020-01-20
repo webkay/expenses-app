@@ -52,7 +52,9 @@ app.controller('ExpensesViewController', ['$scope', 'Expenses', function ($scope
 
 app.controller('ExpenseViewController', ['$scope', '$routeParams', '$location', 'Expenses', function ($scope, $routeParams, $location, Expenses) {
   if (!$routeParams.id) {
-    $scope.expense = {};
+    $scope.expense = {description: "ralphs", amount: 16, date: '2014-10-07'};
+  } else {
+    $scope.expense = Expenses.entries[$routeParams.id - 1];
   }
 
   $scope.save = function () {

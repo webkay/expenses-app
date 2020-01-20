@@ -12,6 +12,7 @@
       <li ng-repeat="expense in expenses" class="list-group-item text-center">
         <span class="pull-left">${{expense.amount | number:2}}</span>
         {{expense.description | uppercase}}
+        <a href="#expenses/edit/{{expenses.indexOf(expense) + 1}}" class="btn btn-primary btn-s pull-right"><span class="glyphicon glyphicon-pencil"></span></a>
       </li>
     </ul>
   </div>
